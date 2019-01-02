@@ -1,0 +1,374 @@
+int m;  
+bool b;
+
+bool testBool() {
+    return (true && 7 > 9); // false 
+}
+
+void test3(int s) {
+
+    m = s; 
+    if (s > 1900) {
+	b = true;
+    } else {
+	b = false; 
+    }    
+
+    cout << "global m is changed to: "; //1900
+    cout << m; 
+
+    cout << "\n";
+    cout << "global b is changed to: "; //false = 0;
+    cout << b;
+    cout << "\n";
+}
+
+int test2(int gs){
+     
+    test3(1900);
+    return gs * 3; 
+      
+}
+
+void test(int input1, int input2, int input3) {
+     int local;   
+     int output;
+     local = (input1 + input2)*input3;
+ 
+     cout << local;  //(10+20)*40 = 1200
+     cout << "\n";
+
+     output = test2(local);  //3600
+     cout << output;
+     cout << "\n";
+}
+
+
+int fff(int i) {
+    int score;
+    bool bb;
+    score = i;
+
+    cout << "successful fff(.) fncall with input: ";    
+    cout << score; // score = 90
+    cout << "\n";
+     
+ 
+    score = i + 40;
+    cout << score; // score = 130
+    cout << "\n";
+    if (score > 100){   
+        bb = true;  // true, 1
+        cout << b; 
+        cout << "\n";
+    }
+
+    if (bb && score > 120) {
+        score = score + 20;        
+        cout << score; // score = 150
+        cout << "\n";
+    }
+    score = score - 110; //40
+    return score; 
+}
+
+
+int cdull() {
+    return 90;
+}
+
+
+void ggg() {
+    int core; 
+    int ugg; 
+
+    cout << "successful ggg() fncall";
+    cout << "\n";
+    m = 50000000;
+    cout << "global m is changed: ";
+    cout << m;
+    cout << "\n";
+    
+    core = cdull();
+    cout << "the returned value by cdull() is: ";
+    cout << core;
+    cout << "\n";
+    ugg = fff(core); // 40
+    cout << "the returned value of fff(90) is:"; 
+    cout << ugg; 
+    cout << "\n";
+	
+}
+
+void kkk(){
+    cout << "successful kkk() fncall";
+    cout << "\n";
+    m = 50000005;
+    cout << "global m is changed: ";
+    cout << m;
+    cout << "\n";
+    ggg(); 
+
+}
+
+
+
+void main() {
+int a; 
+bool c; 
+
+
+int result10;
+
+
+cout << "Hello world!"; // print a string
+cout << "\n";
+
+cout << 44444444;    // print an integer
+cout << "\n";
+
+a = 10000001; // assign local variable
+cout << a;
+cout << "\n";
+
+
+b = true;  // assign a global bool = 1(true)
+cout << b; 
+cout << "\n";
+
+c = false; // assign a local bool = 0(false)
+cout << c; 
+cout << "\n";
+
+a = a + a; // plus, expected value of 2000002
+cout << a; 
+cout << "\n";
+
+m = 2;   //m=2
+cout << m; 
+cout << "\n";
+
+a = a - m ; // minus, expected, 2000000
+cout << a;
+cout << "\n";
+
+a = 2 * 4 * m; //multiply, expected, 16
+cout << a; 
+cout << "\n";
+
+a = a/m; //divide, expected 8
+cout << a;
+cout << "\n";
+
+// test And
+c = true && false; //0
+cout << c;
+
+c = false && true ; //0
+cout << c;
+
+c = false && false ; //0
+cout << c;
+
+c = true && true ; //1
+cout << c;
+cout << "\n";
+
+
+// test Or
+c = true || false; //1
+cout << c;
+
+c = false || true ; //1
+cout << c;
+
+c = false || false ; //0
+cout << c;
+
+c = true || true ; //1
+cout << c;
+cout << "\n";
+
+
+
+
+//test GreaterEq
+c = (5 >= 2); // 1
+cout <<c;  
+
+c = (2 >= 2); // 1
+cout << c;  
+
+c = (2 >= 5); // 0
+cout << c;  
+cout << "\n";
+
+//test LessEq
+
+c = (2 <= 5); // 1
+cout << c;  
+
+c = (2 <= 2); // 1
+cout << c;  
+
+c = (5 <= 2); // 0
+cout << c;  
+cout << "\n";
+
+//test Greater
+c = (5 > 2); // 1
+cout << c;  
+
+c = (2 > 2); // 0
+cout << c;  
+
+c = (2 > 5); // 0
+cout << c;  
+cout << "\n";
+
+
+//test Less
+c = (2 < 5); // 1
+cout << c;  
+
+c = (2 < 2); // 0
+cout << c;  
+
+c = (5 < 2); // 0
+cout << c;  
+cout << "\n";
+
+//test NotEqual
+c = (2 != 5); // 1
+cout << c;  
+
+c = (2 != 2); // 0
+cout << c;  
+
+c = (5 != 2); // 1
+cout << c;  
+cout << "\n";
+
+//test Equal
+c = (2 == 5); // 0
+cout << c;  
+
+c = (2 == 2); // 1
+cout << c;  
+
+c = (5 == 2); // 0
+cout << c;  
+cout << "\n";
+
+//test Not 
+c = !true; // 0
+cout << c; // false
+  
+c = !false; // 1
+cout << c; // true
+
+c = !!true; // 1
+cout << c; // true
+
+c = !!false; // 0
+cout << c; // false
+cout << "\n";
+
+//test Minus
+a = - 5;
+cout << a;  //-5
+cout << "\n";
+a = -(-5); 
+cout << a; // 5
+cout << "\n"; 
+
+//test IfStmt
+if(3 < a) {
+   c = true; 
+   a = 999999999;
+}
+
+cout << c; //1
+cout << "\n";
+cout << a; //99999999
+cout << "\n";
+
+
+
+
+//test IfElseStmt
+if (3 == 5) {
+   c = false;
+   a = 3;
+} else {
+   c = true;
+   a = 5;
+}
+
+cout << c; //1 true
+cout << "\n";
+cout << a; // 5
+cout << "\n";
+
+// test While
+a = 88;
+while (a<100) {
+   cout << a;
+   a = a + 1;
+   cout << "\n";
+}
+
+// test read stmt (Not sure about bool)
+
+//cout << "please enter your an integer value: ";
+//cin >> result10;
+//cout << "the value you entered is " ;
+//cout << result10;
+//cout << "\n";
+
+
+//test --, ++
+a = 88;
+while (a<100) {
+   cout << a;
+   a++;
+ 
+}
+cout << "\n";
+
+a = 99;
+while (a > 90) {
+   a--;
+   cout << a;
+}
+cout << "\n";
+
+
+if (true) {
+    c = false; //0
+} else {
+    c = true;
+}
+cout << c;
+cout << "\n";
+
+m = 55555555;
+cout <<"global m is: ";
+cout << m;
+cout << "\n";
+
+kkk();
+
+a = 10; 
+m = 20;
+test(a, m, 40);
+if (testBool()) {
+   cout << "testBool() returns true. ";
+   cout << "\n";
+} else {
+   cout << "testBool() returns false. ";
+   cout << "\n";
+}
+}
+
+
